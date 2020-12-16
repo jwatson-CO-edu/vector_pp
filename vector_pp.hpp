@@ -5,6 +5,8 @@
         - Size of chunks double in each direction independently
         - On insert/delete, only break or shift a single chunk
         - Search for an index is linear in the number of chunks
+        - Prepend until front space is consumed, then prepend chunk
+        - Append until back space is consumed, then append chunk
 [ ] Read  https://gcc.gnu.org/wiki/Visibility
 [ ] /usr/include/c++/9/bits/stl_list.h
     [ ] What is the underlying element?
@@ -51,6 +53,8 @@ struct chunk_pp{
         // If no length provided, calc length from size in bytes
     }
 
+    bool copy_to( chunk_pp<T>* target ){}
+
     bool expand(){
         chunk_pp<T>* temp = new chunk_pp<T>( N * EXPAND_FACTOR );
         // Get the middle of the new array
@@ -62,8 +66,7 @@ struct chunk_pp{
 
     bool insert_at_index( size_t index ){}
     bool remove_at_index( size_t index ){}
-    T pop_from_index( size_t index ){}
-
+    bool split_at_index( size_t index , bool bias_left = 1 ){}
     
 };
 
