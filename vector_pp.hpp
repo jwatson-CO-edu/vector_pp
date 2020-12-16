@@ -1,4 +1,8 @@
 /***** DEV PLAN *****
+[ ] DECIDE what the most import performance parameters are
+    * Is it insert/delete?
+    * Is it push/pop? front/back?
+    * Is it index access?
 [ ] Read  https://medium.com/@vgasparyan1995/how-to-write-an-stl-compatible-container-fc5b994462c6
     * Idea: Allocate in chunks
         - [prepend chunk] next--> <--prev [append chunk]
